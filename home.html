@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#sobre">Sobre Mim</a></li>
+            <li><a href="#portfolio">Portfólio</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <div class="container full-height">
+        <div id="particles-js"></div>
+        <section id="sobre" class="sobre-mim">
+            <div class="sobre-mim-foto">
+                <img src="eu.jpeg" alt="Foto">
+            </div>
+            <div class="sobre-mim-conteudo">
+                <h2>Olá, eu sou Pedro Muraro</h2>
+                <p>Sou estudante de Análise e Desenvolvimento de Sistemas na FATEC de Presidente Prudente, com paixão por tecnologia e resolução de problemas. 
+                    Estou em busca de oportunidades como desenvolvedor de sistemas, onde posso aplicar e aprimorar meus conhecimentos em programação, 
+                    banco de dados e arquitetura de software.</p>
+
+                    <p>Meu foco é criar soluções eficientes e escaláveis, sempre buscando aprender e me atualizar com as melhores práticas do mercado.</p>        
+                <div class="skills">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Padrões de Projetos</span>
+                    <span class="skill-tag">Github</span>
+                    <span class="skill-tag">MySql</span>
+                    <span class="skill-tag">MongoDB</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio">
+            <h2>Meus Projetos</h2>
+            <div class="projetos">
+                <div class="projeto">
+                    <h3>Projeto de Aprendizado sobre Gameficação</h3>
+                    <p>Sistema web feito para entendimento de como utilizar a gameficação, com uso de padrões de projetos</p>
+                    <a href="https://github.com/oMuraro/SLearn.git" class="repo-link" target="_blank">🔗 Ver no GitHub</a>
+                </div>
+
+                <div class="projeto">
+                    <h3>Projeto utilizando API Star Wars</h3>
+                    <p>Sistema Web feito para o estudo da utilização de API usando como exemplo a API Star Wars.</p>
+                    <a href="https://github.com/oMuraro/Star-Wars.git" class="repo-link" target="_blank">🔗 Ver no GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="formulario" class="formulario-contato">
+            <h2>Entre em Contato</h2>
+            <form id="contact-form">
+                <div class="form-grupo">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="email">Seu E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="mensagem">Sua Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" required></textarea>
+                </div>
+                <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+                <div id="status-mensagem" class="mensagem-status"></div>
+            </form>
+
+            <div class="contato-links">
+                <a href="https://www.linkedin.com/in/seunome" target="_blank"><img class="iconContato" src="linkdin.png"> LinkedIn</a>
+                <a href="https://github.com/seunome" target="_blank"><img class="iconContato" src="github.png"> GitHub</a>
+                <a href="https://wa.me/5518996341486" target="_blank"><img class="iconContato" src="WhatsApp.png"> WhatsApp</a>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("_D0Ziq-98kIR3SgSh");
+        })();
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const statusMensagem = document.getElementById('status-mensagem');
+            statusMensagem.textContent = 'Enviando...';
+            statusMensagem.className = 'mensagem-status';
+
+            const templateParams = {
+                from_name: document.getElementById('nome').value,
+                from_email: document.getElementById('email').value,
+                message: document.getElementById('mensagem').value
+            };
+
+            emailjs.send('service_q44osl4', 'template_d4u9z81', templateParams)
+                .then(function(response) {
+                    statusMensagem.textContent = 'Mensagem enviada com sucesso!';
+                    statusMensagem.classList.add('mensagem-sucesso');
+                    
+                    document.getElementById('contact-form').reset();
+                }, function(error) {
+                    statusMensagem.textContent = 'Erro ao enviar mensagem. Tente novamente.';
+                    statusMensagem.classList.add('mensagem-erro');
+                });
+        });
+
+        particlesJS("particles-js", {
+        particles: {
+            number: { value: 30 },
+            size: { value: 1 },
+            color: { value: "#ffffff" },
+            move: { speed: 1 },
+            line_linked: { enable: true, color: "#ffffff" }
+        }
+    });
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Pedro de Oliveira Muraro. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
