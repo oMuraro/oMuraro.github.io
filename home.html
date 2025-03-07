@@ -11,7 +11,7 @@
         <ul>
             <li><a href="#sobre">Sobre Mim</a></li>
             <li><a href="#portfolio">Portfólio</a></li>
-            <li><a href="#contato">Contato</a></li>
+            <li><a href="#formulario">Contato</a></li>
         </ul>
     </nav>
 
@@ -37,6 +37,8 @@
                     <span class="skill-tag">Github</span>
                     <span class="skill-tag">MySql</span>
                     <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">APIs</span>
+                    <span class="skill-tag">Metodologias Ágeis</span>
                 </div>
             </div>
         </section>
@@ -54,6 +56,18 @@
                     <h3>Projeto utilizando API Star Wars</h3>
                     <p>Sistema Web feito para o estudo da utilização de API usando como exemplo a API Star Wars.</p>
                     <a href="https://github.com/oMuraro/Star-Wars.git" class="repo-link" target="_blank">🔗 Ver no GitHub</a>
+                </div>
+
+                <div class="projeto">
+                    <h3>Projeto de TCC para Gestão de Estabelecimentos de Beleza</h3>
+                    <p>Sistema usando Node.js e React.js, para gerenciamento e exibição de relatórios de um estabelecimento de beleza.</p>
+                    <a href="https://github.com/Arthur-nonaka/TCC-Salao-.git" class="repo-link" target="_blank">🔗 Ver no GitHub</a>
+                </div>
+
+                <div class="projeto">
+                    <h3>Projeto para Gestão da APAE</h3>
+                    <p>Sistema Web feito para o gerenciamento e exibição de relatórios para a APAE, usando padrões de projetos</p>
+                    <a href="https://github.com/Arthur-nonaka/APAE.git" class="repo-link" target="_blank">🔗 Ver no GitHub</a>
                 </div>
             </div>
         </section>
@@ -79,8 +93,8 @@
             </form>
 
             <div class="contato-links">
-                <a href="https://www.linkedin.com/in/seunome" target="_blank"><img class="iconContato" src="linkdin.png"> LinkedIn</a>
-                <a href="https://github.com/seunome" target="_blank"><img class="iconContato" src="github.png"> GitHub</a>
+                <a href="https://linkedin.com/in/pedro-muraro-a362942b5" target="_blank"><img class="iconContato" src="linkdin.png"> LinkedIn</a>
+                <a href="https://github.com/oMuraro" target="_blank"><img class="iconContato" src="github.png"> GitHub</a>
                 <a href="https://wa.me/5518996341486" target="_blank"><img class="iconContato" src="WhatsApp.png"> WhatsApp</a>
             </div>
         </section>
@@ -88,46 +102,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        (function(){
-            emailjs.init("_D0Ziq-98kIR3SgSh");
-        })();
-
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const statusMensagem = document.getElementById('status-mensagem');
-            statusMensagem.textContent = 'Enviando...';
-            statusMensagem.className = 'mensagem-status';
-
-            const templateParams = {
-                from_name: document.getElementById('nome').value,
-                from_email: document.getElementById('email').value,
-                message: document.getElementById('mensagem').value
-            };
-
-            emailjs.send('service_q44osl4', 'template_d4u9z81', templateParams)
-                .then(function(response) {
-                    statusMensagem.textContent = 'Mensagem enviada com sucesso!';
-                    statusMensagem.classList.add('mensagem-sucesso');
-                    
-                    document.getElementById('contact-form').reset();
-                }, function(error) {
-                    statusMensagem.textContent = 'Erro ao enviar mensagem. Tente novamente.';
-                    statusMensagem.classList.add('mensagem-erro');
-                });
-        });
-
-        particlesJS("particles-js", {
-        particles: {
-            number: { value: 30 },
-            size: { value: 1 },
-            color: { value: "#ffffff" },
-            move: { speed: 1 },
-            line_linked: { enable: true, color: "#ffffff" }
-        }
-    });
-    </script>
+    <script src="./index.js"></script>
 
     <footer>
         <p>&copy; 2024 Pedro de Oliveira Muraro. Todos os direitos reservados.</p>

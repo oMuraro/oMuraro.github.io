@@ -169,7 +169,8 @@ nav ul li a:hover::before {
 }
 
 .projetos {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
 
